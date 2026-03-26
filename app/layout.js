@@ -6,11 +6,12 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export default function RootLayout({ children }) {
-  const [dark, setDark] = useState(true)
+  const [dark, setDark] = useState(false)
 
   useEffect(() => {
     const saved = localStorage.getItem('theme')
     if (saved) setDark(saved === 'dark')
+    else setDark(false)
   }, [])
 
   useEffect(() => {
