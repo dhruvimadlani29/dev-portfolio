@@ -1,6 +1,8 @@
-echo "node_modules/
-.next/
-.env
-.env.local
-*.log
-.DS_Store" > .gitignore
+echo "node_modules/" > .gitignore
+echo ".next/" >> .gitignore
+echo ".env" >> .gitignore
+echo ".env.local" >> .gitignore
+echo "*.log" >> .gitignore
+echo ".DS_Store" >> .gitignore
+echo "package-lock.json" >> .gitignore
+echo "public/images/" >> .gitignore
