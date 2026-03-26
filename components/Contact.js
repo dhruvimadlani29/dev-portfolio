@@ -35,8 +35,7 @@ export default function Contact() {
               fontWeight: 800, color: 'var(--text)',
               lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '28px',
             }}>
-              Let's <em style={{ fontStyle: 'italic', color: 'var(--gold)' }}>work</em><br />
-              together<em style={{ fontStyle: 'normal', color: 'var(--gold)' }}>.</em>
+              Let's <em style={{ fontStyle: 'italic', color: 'var(--gold)' }}>work</em> together<em style={{ fontStyle: 'normal', color: 'var(--gold)' }}>.</em>
             </h2>
 
             {/* Subtext — bigger and bolder */}
@@ -45,7 +44,7 @@ export default function Contact() {
               color: 'var(--text2)', lineHeight: 1.8,
               maxWidth: '400px', marginBottom: '36px',
             }}>
-              Open to frontend, full-stack, and cloud co-op roles for Fall 2026 in Ottawa. Let's build something great together.
+              Open to frontend, full-stack and cloud roles in Ottawa — Fall 2026. Reply within 24 hours.
             </p>
 
             {/* Highlight pills */}
