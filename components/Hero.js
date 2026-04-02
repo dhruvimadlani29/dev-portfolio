@@ -112,7 +112,7 @@ export default function Hero() {
           {/* ✅ CHANGE 1 — Larger name + gold gradient on Madlani */}
           <h1
             style={{
-              fontSize: "clamp(2.8rem, 5.5vw, 5rem)",
+              fontSize: "clamp(3.2rem, 6.5vw, 6rem)",
               fontWeight: 800,
               lineHeight: 1,
               letterSpacing: "-0.03em",
