@@ -67,7 +67,7 @@ export default function Hero() {
           marginBottom: "32px",
         }}
       >
-        {/* Left — Name + role + desc */}
+        {/* Left */}
         <div>
           {/* Badge */}
           <div
@@ -96,7 +96,6 @@ export default function Hero() {
                 flexShrink: 0,
               }}
             />
-            {/* badge text: 0.8 → 0.92 */}
             <span
               style={{
                 fontSize: "0.92rem",
@@ -110,10 +109,10 @@ export default function Hero() {
             </span>
           </div>
 
-          {/* Name — unchanged */}
+          {/* ✅ CHANGE 1 — Larger name + gold gradient on Madlani */}
           <h1
             style={{
-              fontSize: "clamp(2.8rem, 5.5vw, 5rem)",
+              fontSize: "clamp(3.2rem, 6.5vw, 6rem)",
               fontWeight: 800,
               lineHeight: 1,
               letterSpacing: "-0.03em",
@@ -123,12 +122,21 @@ export default function Hero() {
             }}
           >
             Dhruvi{" "}
-            <em style={{ fontStyle: "italic", color: "var(--gold)" }}>
+            <em
+              style={{
+                fontStyle: "italic",
+                background:
+                  "linear-gradient(135deg, var(--gold) 0%, #E8A84C 50%, #C17D2E 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
               Madlani
             </em>
           </h1>
 
-          {/* Typewriter — unchanged */}
+          {/* Typewriter */}
           <div
             style={{
               display: "flex",
@@ -169,7 +177,7 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Description — unchanged */}
+          {/* Description */}
           <p
             style={{
               fontSize: "1.1rem",
@@ -180,12 +188,14 @@ export default function Hero() {
               marginBottom: "32px",
             }}
           >
-            Full-stack developer with 4+ years building AI-integrated,
-            cloud-connected web apps. Algonquin College · 4.0 GPA · AWS
-            Certified · Dean's Honour List.
+            Web Development student and Full-stack developer with 4+ years
+            building AI-integrated, cloud-connected web apps.
+            <p>
+              Algonquin College · 4.0 GPA · AWS Certified · Dean's Honour List.
+            </p>
           </p>
 
-          {/* CTAs — unchanged */}
+          {/* ✅ CHANGE 3 — Bigger CTA buttons */}
           <div
             style={{
               display: "flex",
@@ -197,10 +207,10 @@ export default function Hero() {
             <a
               href="#projects"
               style={{
-                padding: "14px 36px",
+                padding: "18px 48px",
                 background: "var(--gold)",
                 color: "white",
-                fontSize: "0.85rem",
+                fontSize: "0.95rem",
                 fontWeight: 700,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
@@ -226,11 +236,11 @@ export default function Hero() {
             <a
               href="#contact"
               style={{
-                padding: "14px 36px",
+                padding: "18px 48px",
                 background: "transparent",
                 border: "1.5px solid var(--gold-border)",
                 color: "var(--text)",
-                fontSize: "0.85rem",
+                fontSize: "0.95rem",
                 fontWeight: 600,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
@@ -256,7 +266,7 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Socials — colorful icon buttons */}
+          {/* ✅ CHANGE 5 — Medium icon green, all brand colors */}
           <div style={{ display: "flex", gap: "10px" }}>
             {[
               {
@@ -314,8 +324,8 @@ export default function Hero() {
                 label: "Medium",
                 href: "https://medium.com",
                 color: "#ffffff",
-                bg: "#000000",
-                border: "#000000",
+                bg: "#00AB6C",
+                border: "#00AB6C",
                 svg: (
                   <svg
                     width="18"
@@ -380,6 +390,21 @@ export default function Hero() {
               flexShrink: 0,
             }}
           >
+            {/* ✅ CHANGE 2 — Gold glow behind photo */}
+            <div
+              style={{
+                position: "absolute",
+                inset: "-16px",
+                borderRadius: "28px",
+                background:
+                  "radial-gradient(ellipse at center, var(--gold) 0%, transparent 70%)",
+                opacity: 0.18,
+                zIndex: 0,
+                filter: "blur(16px)",
+                pointerEvents: "none",
+              }}
+            />
+
             <div
               style={{
                 position: "absolute",
@@ -420,6 +445,7 @@ export default function Hero() {
                 opacity: 0.7,
               }}
             />
+
             <Image
               src="/images/dhruvi.jpeg"
               alt="Dhruvi Madlani"
@@ -428,11 +454,12 @@ export default function Hero() {
                 objectFit: "cover",
                 objectPosition: "top center",
                 borderRadius: "16px",
+                zIndex: 1,
               }}
               priority
             />
 
-            {/* GPA badge: 0.6 → 0.75, 0.68 → 0.82 */}
+            {/* GPA badge */}
             <div
               style={{
                 position: "absolute",
@@ -480,7 +507,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Experience badge: 0.6 → 0.75, 0.68 → 0.82 */}
+            {/* Experience badge */}
             <div
               style={{
                 position: "absolute",
@@ -532,7 +559,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* BOTTOM ROW — Stats */}
+      {/* ✅ CHANGE 4 — Stats with gold top border */}
       <div
         style={{
           display: "grid",
@@ -540,22 +567,12 @@ export default function Hero() {
           borderRadius: "16px",
           overflow: "hidden",
           border: "1px solid var(--card-border)",
+          borderTop: "2px solid var(--gold)",
           background: "var(--card)",
           backdropFilter: "blur(20px)",
           position: "relative",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: "8%",
-            right: "8%",
-            height: "1px",
-            background:
-              "linear-gradient(90deg, transparent, var(--gold-border), var(--gold), var(--gold-border), transparent)",
-          }}
-        />
         {STATS.map((s, i) => (
           <div
             key={i}
@@ -604,16 +621,12 @@ export default function Hero() {
       {/* Scroll indicator */}
       <div
         style={{
-          position: "absolute",
-          bottom: "28px",
-          left: "50%",
-          transform: "translateX(-50%)",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           gap: "8px",
           opacity: 0.55,
-          zIndex: 5,
+          marginTop: "24px",
           pointerEvents: "none",
         }}
       >

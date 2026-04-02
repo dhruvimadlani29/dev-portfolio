@@ -30,7 +30,7 @@ export default function About() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', marginBottom: '32px' }}>
               {[
                 "Full-stack developer with 4+ years of professional experience, currently in Year 2 of the Web Development and Internet Applications program at Algonquin College — Dean's Honour List, 4.0 GPA, and Class Representative.",
-                "I specialize in AI-integrated, cloud-connected applications using React, Node.js, and AWS. From improving app performance by 78 percentage points to building 5 AI-powered tools in a single project.",
+                "I specialize in AI-integrated, cloud-connected applications using React, Node.js, and AWS. From improving app performance to building AI-powered tools in a single project.",
                 "Seeking Fall 2026 co-op in Ottawa. Open to frontend, full-stack, and cloud-focused roles.",
               ].map((p, i) => (
                 <p key={i} style={{ fontSize: '1rem', fontWeight: 500, color: 'var(--text2)', lineHeight: 1.8 }}>{p}</p>
