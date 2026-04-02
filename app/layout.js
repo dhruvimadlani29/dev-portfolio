@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <title>Dhruvi Madlani — Full-Stack Developer</title>
+        <title>Dhruvi Madlani</title>
         <meta name="description" content="Full-stack developer with 4+ years of experience. React, Node.js, AWS. Based in Ottawa, ON. Open to Fall 2026 co-op." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
