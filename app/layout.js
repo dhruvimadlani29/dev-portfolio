@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         <title>Dhruvi Madlani — Full-Stack Developer</title>
         <meta name="description" content="Full-stack developer with 4+ years of experience. React, Node.js, AWS. Based in Ottawa, ON. Open to Fall 2026 co-op." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
       </head>
       <body>
         {/* Background orbs */}

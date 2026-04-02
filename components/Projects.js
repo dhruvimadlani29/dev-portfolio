@@ -10,10 +10,10 @@ const TAG_STYLES = {
 
 const PROJECTS = [
   {
-    title: 'Developer Portfolio — dhruvi.dev', tags: ['Personal'],
+    title: 'Developer Portfolio', tags: ['Personal'],
     desc: 'This very portfolio! Built with Next.js 14, custom CSS design tokens, dark/light theme toggle, Devicon tech logos, filterable project grid, and timeline experience section.',
     tech: ['Next.js', 'React', 'CSS Variables', 'Devicons', 'Vercel'],
-    live: null, github: 'https://github.com/dhruvimadlani29/portfolio',
+    live: null, github: 'https://github.com/dhruvimadlani29/dev-portfolio',
     accent: '#1D9E75',
     icon: '🌐',
   },
@@ -30,7 +30,7 @@ const PROJECTS = [
     title: 'MediFeel — Health Tracker', tags: ['Hackathon'],
     desc: 'Ada Sisterhood Hackathon · 🥈 2nd Place · Prototype only. AI health tracking with symptom logging, body map and doctor portal.',
     tech: ['React', 'AI Integration', 'Healthcare APIs'],
-    live: null, github: 'https://github.com/dhruvimadlani29',
+    live: null, github: 'https://github.com/dhruvimadlani29/medifeel',
     accent: '#C17D2E',
     icon: '🏥',
   },

@@ -44,7 +44,7 @@ const EDUCATION = [
     gpa: null,
     note: null,
     description: 'Relevant coursework: Dynamic Web Page Development, Advanced DBMS, .Net Programming, Mobile Computing, and Application Development.',
-    website: 'https://gpp.ac.in',
+    website: 'https://sites.google.com/view/gppr-cteguj',
     initials: 'GP',
     logoColor: '#4A235A',
     logoBg: '#F3E5F5',

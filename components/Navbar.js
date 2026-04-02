@@ -88,6 +88,7 @@ export default function Navbar({ dark, setDark }) {
             {link.label}
           </a>
         ))}
+
         <a
           href="https://mail.google.com/mail/?view=cm&to=dhruvimadlani2902@gmail.com&su=Resume%20Request&body=Hi%20Dhruvi%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20receive%20a%20copy%20of%20your%20resume.%0A%0AThanks!"
           target="_blank"
@@ -113,7 +114,29 @@ export default function Navbar({ dark, setDark }) {
             e.currentTarget.style.color = "var(--gold)";
           }}
         >
-        Request Resume ↗
+          Request Resume ↗
+        </a>
+        <a
+          href="https://calendly.com/dhruvimadlani2902/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            padding: "8px 22px",
+            background: "var(--gold)",
+            color: "white",
+            fontSize: "0.72rem",
+            fontWeight: 600,
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            textDecoration: "none",
+            borderRadius: "4px 0 0 4px",
+            transition: "all 0.25s",
+            border: "1.5px solid var(--gold)",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.88")}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+        >
+          📅 Book a Call
         </a>
       </div>
 
