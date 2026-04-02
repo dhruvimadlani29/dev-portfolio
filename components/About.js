@@ -33,7 +33,7 @@ export default function About() {
                 "I specialize in AI-integrated, cloud-connected applications using React, Node.js, and AWS. From improving app performance by 78 percentage points to building 5 AI-powered tools in a single project.",
                 "Seeking Fall 2026 co-op in Ottawa. Open to frontend, full-stack, and cloud-focused roles.",
               ].map((p, i) => (
-                <p key={i} style={{ fontSize: '1.2rem', fontWeight: 500, color: 'var(--text2)', lineHeight: 1.8 }}>{p}</p>
+                <p key={i} style={{ fontSize: '1rem', fontWeight: 500, color: 'var(--text2)', lineHeight: 1.8 }}>{p}</p>
               ))}
             </div>
 
@@ -57,17 +57,17 @@ export default function About() {
 
           {/* Right */}
           <div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'var(--divider)', border: '1px solid var(--divider)', borderRadius: '12px', overflow: 'hidden', marginBottom: '24px' }}>
-              {stats.map(s => (
-                <div key={s.label} style={{ background: 'var(--bg)', padding: '32px 24px', transition: 'background 0.2s' }}
-                  onMouseEnter={e => e.currentTarget.style.background = 'var(--card)'}
-                  onMouseLeave={e => e.currentTarget.style.background = 'var(--bg)'}
-                >
+            {/* <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--card-border)', background: 'var(--card)', backdropFilter: 'blur(10px)', marginBottom: '24px', position: 'relative' }}>
+              <div style={{ position: 'absolute', top: 0, left: '10%', right: '10%', height: '1px', background: 'linear-gradient(90deg, transparent, var(--gold-border), var(--gold), var(--gold-border), transparent)' }} />
+              {stats.map((s, i) => (
+                <div key={s.label} style={{ padding: '32px 24px', transition: 'background 0.2s', borderRight: i % 2 === 0 ? '1px solid var(--divider)' : 'none', borderBottom: i < 2 ? '1px solid var(--divider)' : 'none' }}
+                  onMouseEnter={e => e.currentTarget.style.background = 'var(--gold-bg)'}
+                  onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
                   <div style={{ fontSize: '3.5rem', fontWeight: 800, color: 'var(--gold)', fontStyle: 'italic', lineHeight: 1, marginBottom: '6px' }}>{s.val}</div>
-                  <div style={{ fontSize: '0.92rem', fontWeight: 600, color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{s.label}</div>
+                  <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text3)', textTransform: 'uppercase', letterSpacing: '0.12em' }}>{s.label}</div>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             <div style={{ background: 'var(--card)', border: '1px solid var(--card-border)', borderRadius: '10px', padding: '24px', backdropFilter: 'blur(10px)', marginBottom: '20px' }}>
               <p style={{ fontSize: '0.62rem', fontWeight: 700, color: 'var(--gold)', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '10px' }}>Current Location</p>
