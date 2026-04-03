@@ -13,11 +13,40 @@ const NAV = [
 export default function Navbar({ dark, setDark }) {
   const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
+  }, []);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    NAV.forEach((navItem) => {
+      const section = document.getElementById(navItem.href.slice(1));
+      if (section) observer.observe(section);
+    });
+
+    const homeSection = document.getElementById("home");
+    if (homeSection) observer.observe(homeSection);
+
+    return () => observer.disconnect();
   }, []);
 
   const navBase = {
@@ -42,6 +71,7 @@ export default function Navbar({ dark, setDark }) {
     <nav className="navbar-root" style={navBase}>
       <a
         href="#home"
+        onClick={() => setActiveSection("home")}
         style={{
           fontFamily: "inherit",
           fontSize: "1rem",
@@ -64,25 +94,28 @@ export default function Navbar({ dark, setDark }) {
           <a
             key={link.href}
             href={link.href}
+            onClick={() => setActiveSection(link.href.slice(1))}
             style={{
               fontSize: "0.82rem",
               fontWeight: 700,
-              color: "var(--text2)",
+              color: activeSection === link.href.slice(1) ? "var(--gold)" : "var(--text2)",
               textDecoration: "none",
               letterSpacing: "0.12em",
               transition: "color 0.2s, border-color 0.2s",
               position: "relative",
               textTransform: "uppercase",
               paddingBottom: "3px",
-              borderBottom: "1.5px solid transparent",
+              borderBottom: activeSection === link.href.slice(1) ? "1.5px solid var(--gold)" : "1.5px solid transparent",
             }}
             onMouseEnter={(e) => {
               e.target.style.color = "var(--gold)";
               e.target.style.borderBottomColor = "var(--gold)";
             }}
             onMouseLeave={(e) => {
-              e.target.style.color = "var(--text2)";
-              e.target.style.borderBottomColor = "transparent";
+              if (activeSection !== link.href.slice(1)) {
+                e.target.style.color = "var(--text2)";
+                e.target.style.borderBottomColor = "transparent";
+              }
             }}
           >
             {link.label}
@@ -179,12 +212,15 @@ export default function Navbar({ dark, setDark }) {
             <a
               key={link.href}
               href={link.href}
-              onClick={() => setMenu(false)}
+              onClick={() => {
+                setMenu(false);
+                setActiveSection(link.href.slice(1));
+              }}
               style={{
                 fontSize: "1.25rem",
                 fontWeight: 700,
                 fontStyle: "normal",
-                color: "var(--text)",
+                color: activeSection === link.href.slice(1) ? "var(--gold)" : "var(--text)",
                 textDecoration: "none",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
