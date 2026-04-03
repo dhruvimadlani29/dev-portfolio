@@ -97,6 +97,7 @@ export default function Experience() {
 
           {EXPERIENCES.map((exp, i) => (
             <div
+              className="exp-item"
               key={i}
               style={{
                 display: "grid",

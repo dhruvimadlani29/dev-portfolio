@@ -101,9 +101,9 @@ export default function Education() {
         <h2 className="section-title">Education<em>.</em></h2>
 
         {/* Degrees — latest first */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '56px' }}>
+        <div className="education-items" style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '56px' }}>
           {EDUCATION.map((edu, i) => (
-            <div key={i} style={{
+            <div className="education-item" key={i} style={{
               display: 'grid', gridTemplateColumns: '120px 1fr',
               border: '1px solid var(--card-border)', borderRadius: '14px',
               overflow: 'hidden', transition: 'transform 0.25s, border-color 0.25s',
@@ -169,7 +169,7 @@ export default function Education() {
 
         {/* Certifications */}
         <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--gold)', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: '20px' }}>Certifications</div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '12px' }}>
+        <div className="certs-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '12px' }}>
           {CERTS.map(c => (
             <div key={c.name} style={{
               background: 'var(--card)', border: '1px solid var(--card-border)',

@@ -90,9 +90,10 @@ export default function Skills() {
         </div>
 
         <div
+          className="skills-bottom-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(5, 1fr)",
+            gridTemplateColumns: "repeat(4, 1fr)",
             gap: "10px",
           }}
         >

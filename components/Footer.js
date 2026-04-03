@@ -12,7 +12,7 @@ export default function Footer() {
         gap: "12px",
       }}
     >
-      <div
+      {/* <div
         style={{
           fontSize: "1rem",
           fontWeight: 700,
@@ -22,7 +22,7 @@ export default function Footer() {
       >
         Dhruvi{" "}
         <span style={{ color: "var(--gold)", fontStyle: "normal" }}>✦</span>
-      </div>
+      </div> */}
       <p
         style={{
           fontSize: "0.82rem",
@@ -35,7 +35,7 @@ export default function Footer() {
         Designed & built by Dhruvi Madlani · 2026
       </p>
       <a
-        href="https://github.com/dhruvimadlani29"
+        href="https://github.com/dhruvimadlani29/dev-portfolio"
         target="_blank"
         rel="noopener noreferrer"
         style={{

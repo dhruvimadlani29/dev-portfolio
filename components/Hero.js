@@ -51,7 +51,7 @@ export default function Hero() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        padding: "80px 6vw 48px",
+        padding: "70px 6vw 44px",
         position: "relative",
         zIndex: 10,
         boxSizing: "border-box",
@@ -59,6 +59,7 @@ export default function Hero() {
     >
       {/* TOP ROW — Name + Photo */}
       <div
+        className="hero-section"
         style={{
           display: "grid",
           gridTemplateColumns: "1fr auto",
@@ -112,12 +113,12 @@ export default function Hero() {
           {/* ✅ CHANGE 1 — Larger name + gold gradient on Madlani */}
           <h1
             style={{
-              fontSize: "clamp(3.2rem, 6.5vw, 6rem)",
+              fontSize: "clamp(2.6rem, 5.2vw, 4.1rem)",
               fontWeight: 800,
               lineHeight: 1,
               letterSpacing: "-0.03em",
               color: "var(--text)",
-              marginBottom: "24px",
+              marginBottom: "22px",
               whiteSpace: "nowrap",
             }}
           >
@@ -156,10 +157,11 @@ export default function Hero() {
             />
             <p
               style={{
-                fontSize: "1.2rem",
+                fontSize: "0.98rem",
                 fontWeight: 500,
                 color: "var(--text2)",
-                minWidth: "300px",
+                minWidth: "0",
+                maxWidth: "100%",
               }}
             >
               {text}
@@ -180,12 +182,12 @@ export default function Hero() {
           {/* Description */}
           <p
             style={{
-              fontSize: "1.1rem",
+              fontSize: "0.98rem",
               fontWeight: 500,
               color: "var(--text2)",
-              lineHeight: 1.75,
+              lineHeight: 1.68,
               maxWidth: "560px",
-              marginBottom: "32px",
+              marginBottom: "26px",
             }}
           >
             Web Development student and Full-stack developer with 4+ years
@@ -198,7 +200,7 @@ export default function Hero() {
             style={{
               display: "flex",
               gap: "14px",
-              marginBottom: "36px",
+              marginBottom: "30px",
               flexWrap: "wrap",
             }}
           >
@@ -374,6 +376,7 @@ export default function Hero() {
 
         {/* Right — Photo */}
         <div
+          className="hero-photo-col"
           style={{
             display: "flex",
             alignItems: "center",
@@ -450,7 +453,7 @@ export default function Hero() {
               fill
               style={{
                 objectFit: "cover",
-                objectPosition: "top center",
+                objectPosition: "center 15%",
                 borderRadius: "16px",
                 zIndex: 1,
               }}
@@ -559,6 +562,7 @@ export default function Hero() {
 
       {/* ✅ CHANGE 4 — Stats with gold top border */}
       <div
+        className="stats-row-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
@@ -615,6 +619,12 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div
+        onClick={() => {
+          const aboutSection = document.getElementById("about");
+          if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -622,7 +632,14 @@ export default function Hero() {
           gap: "8px",
           opacity: 0.55,
           marginTop: "24px",
-          pointerEvents: "none",
+          cursor: "pointer",
+          transition: "opacity 0.3s",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.opacity = "1";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.opacity = "0.55";
         }}
       >
         <span

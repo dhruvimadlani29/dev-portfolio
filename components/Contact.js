@@ -87,6 +87,7 @@ export default function Contact() {
 
         {/* Main grid */}
         <div
+          className="contact-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",

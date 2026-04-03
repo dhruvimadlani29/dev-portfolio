@@ -39,7 +39,7 @@ export default function Navbar({ dark, setDark }) {
   };
 
   return (
-    <nav style={navBase}>
+    <nav className="navbar-root" style={navBase}>
       <a
         href="#home"
         style={{
@@ -57,8 +57,8 @@ export default function Navbar({ dark, setDark }) {
 
       {/* Desktop */}
       <div
+        className="desktop-nav"
         style={{ display: "flex", alignItems: "center", gap: "32px" }}
-        className="hidden md:flex"
       >
         {NAV.map((link) => (
           <a
@@ -143,13 +143,16 @@ export default function Navbar({ dark, setDark }) {
       {/* Mobile hamburger */}
       <button
         onClick={() => setMenu(!menu)}
-        className="md:hidden"
+        className="mobile-hamburger"
+        aria-label={menu ? "Close navigation menu" : "Open navigation menu"}
         style={{
           background: "none",
           border: "none",
           cursor: "pointer",
-          color: "var(--text)",
-          fontSize: "1.4rem",
+          color: "var(--gold)",
+          fontSize: "1.6rem",
+          lineHeight: 1,
+          textShadow: "0 0 8px rgba(0,0,0,0.25)",
         }}
       >
         {menu ? "✕" : "☰"}
@@ -180,18 +183,21 @@ export default function Navbar({ dark, setDark }) {
               style={{
                 fontSize: "1.25rem",
                 fontWeight: 700,
-                fontStyle: "italic",
+                fontStyle: "normal",
                 color: "var(--text)",
                 textDecoration: "none",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
               }}
             >
               {link.label}
             </a>
           ))}
           <a
-            href="/Dhruvi_Madlani_Resume.pdf"
+            href="https://mail.google.com/mail/?view=cm&to=dhruvimadlani2902@gmail.com&su=Resume%20Request&body=Hi%20Dhruvi%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20receive%20a%20copy%20of%20your%20resume.%0A%0AThanks!"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => setMenu(false)}
             style={{
               padding: "10px 0",
               border: "1px solid var(--gold)",
@@ -205,7 +211,28 @@ export default function Navbar({ dark, setDark }) {
               borderRadius: "4px",
             }}
           >
-            Résumé ↗
+            Request Resume ↗
+          </a>
+          <a
+            href="https://calendly.com/dhruvimadlani2902/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenu(false)}
+            style={{
+              padding: "10px 0",
+              border: "1px solid var(--gold)",
+              backgroundColor: "var(--gold)",
+              color: "white",
+              fontSize: "0.72rem",
+              fontWeight: 600,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              textDecoration: "none",
+              textAlign: "center",
+              borderRadius: "4px",
+            }}
+          >
+            📅 Book a Call
           </a>
         </div>
       )}

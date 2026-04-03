@@ -162,6 +162,7 @@ function ProjectCard({ p }) {
 
   return (
     <div
+      className="project-item"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
@@ -451,7 +452,8 @@ export default function Projects() {
         </div>
 
         {/* 3-column grid */}
-        <div
+        <div  
+          className="projects-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
