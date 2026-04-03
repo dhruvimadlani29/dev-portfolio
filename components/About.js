@@ -2,8 +2,8 @@
 export default function About() {
   const awards = [
     ["🏆 Dean's Honour List", "Algonquin College · Sep–Dec 2025"],
-    ["🥈 2nd Place Hackathon", "Ada Sisterhood · MediFeel"],
-    ["⭐ Rising Star Award", "Sufalam Technologies · 2023"],
+    ["🥈 2nd Place Hackathon", "MediFeel · Mar 2026"],
+    ["⭐ Rising Star Award", "Sufalam Technologies · Apr 2023"],
   ]
 
   const stats = [

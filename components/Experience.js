@@ -2,6 +2,22 @@
 
 const EXPERIENCES = [
   {
+    role: "Class Representative",
+    company: "Algonquin College",
+    companyUrl: "https://www.algonquincollege.com",
+    location: "Ottawa, ON",
+    period: "Sep 2025 – Present",
+    type: "Volunteer",
+    initials: "AC",
+    logoImg: "/images/algonquin.jpg",
+    logoColor: "#006838",
+    logoBg: "#E8F5E9",
+    bullets: [
+      "Main liaison between faculty and 30+ students — communicating academic updates and deadlines",
+      "Advocated for student concerns with faculty and administration, ensuring timely resolution",
+    ],
+  },
+  {
     role: "Senior Frontend Developer",
     company: "Dvij Infotech",
     companyUrl: "https://dvijinfotech.com",
@@ -34,22 +50,6 @@ const EXPERIENCES = [
       "Designed and maintained 5+ client projects using React.js, Node.js, TypeScript, and MySQL",
       "Contributed to a US-based real estate platform managing closing documents and stakeholders",
       "Worked on payment gateways, B2B e-commerce platforms, and asset tracking systems",
-    ],
-  },
-  {
-    role: "Class Representative",
-    company: "Algonquin College",
-    companyUrl: "https://www.algonquincollege.com",
-    location: "Ottawa, ON",
-    period: "Sep 2025 – Present",
-    type: "Volunteer",
-    initials: "AC",
-    logoImg: "/images/algonquin.jpg",
-    logoColor: "#006838",
-    logoBg: "#E8F5E9",
-    bullets: [
-      "Main liaison between faculty and 30+ students — communicating academic updates and deadlines",
-      "Advocated for student concerns with faculty and administration, ensuring timely resolution",
     ],
   },
 ];
