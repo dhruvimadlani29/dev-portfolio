@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const NAV = [
   { label: "About", href: "#about" },
@@ -7,46 +7,68 @@ const NAV = [
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Education", href: "#education" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ];
+
+const ALL_SECTION_IDS = [
+  "home",
+  "about",
+  "skills",
+  "experience",
+  "projects",
+  "education",
+  "certifications",
+  "contact",
+];
+
+// Returns whichever section's top is closest to (but not past) the middle of the viewport
+function getActiveFromScroll() {
+  const mid = window.scrollY + window.innerHeight * 0.4;
+  let best = "home";
+  for (const id of ALL_SECTION_IDS) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    if (el.getBoundingClientRect().top + window.scrollY <= mid) {
+      best = id;
+    }
+  }
+  return best;
+}
 
 export default function Navbar({ dark, setDark }) {
   const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", fn);
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
+  // Lock scroll-based detection briefly after a nav click
+  const lockRef = useRef(false);
+  const lockTimerRef = useRef(null);
+
+  const handleNavClick = (id) => {
+    setActiveSection(id);
+    lockRef.current = true;
+    if (lockTimerRef.current) clearTimeout(lockTimerRef.current);
+    lockTimerRef.current = setTimeout(() => {
+      lockRef.current = false;
+      // After lock expires, re-calculate from actual scroll position
+      setActiveSection(getActiveFromScroll());
+    }, 1200);
+  };
 
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "-50% 0px -50% 0px",
-      threshold: 0,
+    // Set active immediately from scroll position (works on refresh too)
+    setActiveSection(getActiveFromScroll());
+
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+      if (!lockRef.current) {
+        setActiveSection(getActiveFromScroll());
+      }
     };
 
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    NAV.forEach((navItem) => {
-      const section = document.getElementById(navItem.href.slice(1));
-      if (section) observer.observe(section);
-    });
-
-    const homeSection = document.getElementById("home");
-    if (homeSection) observer.observe(homeSection);
-
-    return () => observer.disconnect();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const navBase = {
@@ -71,7 +93,7 @@ export default function Navbar({ dark, setDark }) {
     <nav className="navbar-root" style={navBase}>
       <a
         href="#home"
-        onClick={() => setActiveSection("home")}
+        onClick={() => handleNavClick("home")}
         style={{
           fontFamily: "inherit",
           fontSize: "1rem",
@@ -90,37 +112,43 @@ export default function Navbar({ dark, setDark }) {
         className="desktop-nav"
         style={{ display: "flex", alignItems: "center", gap: "32px" }}
       >
-        {NAV.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            onClick={() => setActiveSection(link.href.slice(1))}
-            style={{
-              fontSize: "0.82rem",
-              fontWeight: 700,
-              color: activeSection === link.href.slice(1) ? "var(--gold)" : "var(--text2)",
-              textDecoration: "none",
-              letterSpacing: "0.12em",
-              transition: "color 0.2s, border-color 0.2s",
-              position: "relative",
-              textTransform: "uppercase",
-              paddingBottom: "3px",
-              borderBottom: activeSection === link.href.slice(1) ? "1.5px solid var(--gold)" : "1.5px solid transparent",
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.color = "var(--gold)";
-              e.target.style.borderBottomColor = "var(--gold)";
-            }}
-            onMouseLeave={(e) => {
-              if (activeSection !== link.href.slice(1)) {
-                e.target.style.color = "var(--text2)";
-                e.target.style.borderBottomColor = "transparent";
-              }
-            }}
-          >
-            {link.label}
-          </a>
-        ))}
+        {NAV.map((link) => {
+          const id = link.href.slice(1);
+          const isActive = activeSection === id;
+          return (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => handleNavClick(id)}
+              style={{
+                fontSize: "0.82rem",
+                fontWeight: 700,
+                color: isActive ? "var(--gold)" : "var(--text2)",
+                textDecoration: "none",
+                letterSpacing: "0.12em",
+                transition: "color 0.2s, border-color 0.2s",
+                position: "relative",
+                textTransform: "uppercase",
+                paddingBottom: "3px",
+                borderBottom: isActive
+                  ? "1.5px solid var(--gold)"
+                  : "1.5px solid transparent",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "var(--gold)";
+                e.currentTarget.style.borderBottomColor = "var(--gold)";
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive) {
+                  e.currentTarget.style.color = "var(--text2)";
+                  e.currentTarget.style.borderBottomColor = "transparent";
+                }
+              }}
+            >
+              {link.label}
+            </a>
+          );
+        })}
 
         <a
           href="https://mail.google.com/mail/?view=cm&to=dhruvimadlani2902@gmail.com&su=Resume%20Request&body=Hi%20Dhruvi%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20receive%20a%20copy%20of%20your%20resume.%0A%0AThanks!"
@@ -208,27 +236,30 @@ export default function Navbar({ dark, setDark }) {
             gap: "20px",
           }}
         >
-          {NAV.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => {
-                setMenu(false);
-                setActiveSection(link.href.slice(1));
-              }}
-              style={{
-                fontSize: "1.25rem",
-                fontWeight: 700,
-                fontStyle: "normal",
-                color: activeSection === link.href.slice(1) ? "var(--gold)" : "var(--text)",
-                textDecoration: "none",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-              }}
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV.map((link) => {
+            const id = link.href.slice(1);
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => {
+                  setMenu(false);
+                  handleNavClick(id);
+                }}
+                style={{
+                  fontSize: "1.25rem",
+                  fontWeight: 700,
+                  fontStyle: "normal",
+                  color: activeSection === id ? "var(--gold)" : "var(--text)",
+                  textDecoration: "none",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                }}
+              >
+                {link.label}
+              </a>
+            );
+          })}
           <a
             href="https://mail.google.com/mail/?view=cm&to=dhruvimadlani2902@gmail.com&su=Resume%20Request&body=Hi%20Dhruvi%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20receive%20a%20copy%20of%20your%20resume.%0A%0AThanks!"
             target="_blank"
