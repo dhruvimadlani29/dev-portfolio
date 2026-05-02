@@ -46,6 +46,16 @@ const PROJECTS = [
     icon: "🎯",
   },
   {
+    title: "Code Review Assistant",
+    tags: ["Personal"],
+    desc: "AI-powered code review tool that analyzes code quality, detects bugs and anti-patterns, and provides intelligent suggestions. Built with Python FastAPI backend and Next.js TypeScript frontend, using Groq Llama 3 AI and Radon static analysis.",
+    tech: ["Python", "FastAPI", "Next.js", "TypeScript", "Groq AI", "Tailwind"],
+    live: "https://code-review-assistant-two.vercel.app",
+    github: "https://github.com/dhruvimadlani29/code-review-assistant",
+    accent: "#1D9E75",
+    icon: "🔍",
+  },
+  {
     title: "MediFeel — Health Tracker",
     tags: ["Hackathon"],
     desc: "Ada Sisterhood Hackathon · 🥈 2nd Place · Prototype only. AI health tracking with symptom logging, body map and doctor portal.",
@@ -452,7 +462,7 @@ export default function Projects() {
         </div>
 
         {/* 3-column grid */}
-        <div  
+        <div
           className="projects-grid"
           style={{
             display: "grid",
