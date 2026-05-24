@@ -368,7 +368,7 @@ function ProjectCard({ p }) {
 
 export default function Projects() {
   const [active, setActive] = useState("All");
-  const filters = ["All", "Personal", "Academic", "Hackathon", "Industry"];
+  const filters = ["All", "Personal", "Academic", "Hackathon", "Industrial"];
   const filtered =
     active === "All"
       ? PROJECTS
