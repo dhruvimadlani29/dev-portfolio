@@ -87,7 +87,7 @@ const PROJECTS = [
   },
   {
     title: "Real Estate Scheduling Platform",
-    tags: ["Industry"],
+    tags: ["Industrial"],
     desc: "Web-based scheduling platform for real estate transactions, connecting customers, agents, and vendors. US-based client.",
     tech: ["React.js", "Node.js", "TypeScript", "MySQL"],
     live: null,
@@ -97,7 +97,7 @@ const PROJECTS = [
   },
   {
     title: "Payment Gateway Solution",
-    tags: ["Industry"],
+    tags: ["Industrial"],
     desc: "Payment gateway integration for seamless online transactions with real-time notifications and secure processing.",
     tech: ["React.js", "Node.js", "REST APIs", "MySQL"],
     live: null,
@@ -107,7 +107,7 @@ const PROJECTS = [
   },
   {
     title: "B2B E-Commerce Platform",
-    tags: ["Industry"],
+    tags: ["Industrial"],
     desc: "B2B e-commerce platform for seamless business transactions with integrated payment gateways and inventory management.",
     tech: ["React.js", "TypeScript", "Node.js", "MySQL"],
     live: null,
@@ -117,7 +117,7 @@ const PROJECTS = [
   },
   {
     title: "Asset Tracking System",
-    tags: ["Industry"],
+    tags: ["Industrial"],
     desc: "System to track company assets using barcode scanning and real-time monitoring with dashboard analytics.",
     tech: ["React.js", "Node.js", "MongoDB"],
     live: null,
@@ -127,7 +127,7 @@ const PROJECTS = [
   },
   {
     title: "Mobile Tracking & Identity Verification",
-    tags: ["Industry"],
+    tags: ["Industrial"],
     desc: "Mobile tracking and identity verification platform for retrieving detailed user information with secure authentication.",
     tech: ["React.js", "Node.js", "TypeScript", "Firebase"],
     live: null,
@@ -137,7 +137,7 @@ const PROJECTS = [
   },
   {
     title: "File Conversion Utility",
-    tags: ["Industry"],
+    tags: ["Industrial"],
     desc: "Utility to convert files between multiple formats with batch processing support and progress tracking.",
     tech: ["React.js", "Node.js", "Express.js"],
     live: null,
