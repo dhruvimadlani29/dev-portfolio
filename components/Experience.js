@@ -18,7 +18,7 @@ const EXPERIENCES = [
     ],
   },
   {
-    role: "Senior Frontend Developer",
+    role: "Frontend Developer",
     company: "Dvij Infotech",
     companyUrl: "https://dvijinfotech.com",
     location: "Ahmedabad, India",
